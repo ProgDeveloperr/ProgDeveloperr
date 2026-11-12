@@ -1,6 +1,6 @@
 <h1 align="center">
   ¡Hola, soy Joaquín González García!
-  <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3J1cGZvcmd3Z3k5YmdydmVlMWx4OG93Zmt2bDRuZGJpZWZmY3BmYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3og0IV7MOCfnm85iRa/giphy.gif" width="35" alt="Space">
+  <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="35" alt="Saludo animado">
 </h1>
 
 <p align="center">
@@ -16,7 +16,7 @@
   </a>
 </p>
 
-<img align="right" width="260" alt="Animación de trabajo en la computadora" src="https://c.tenor.com/GN73MKBawZYAAAAi/busy-cute.gif" />
+<img align="right" width="260" alt="GIF animado de Giphy" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3J1cGZvcmd3Z3k5YmdydmVlMWx4OG93Zmt2bDRuZGJpZWZmY3BmYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3og0IV7MOCfnm85iRa/giphy.gif" />
 
 ## 👨‍💻 Sobre mí
 
