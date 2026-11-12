@@ -17,6 +17,13 @@ jobs:
     steps:
       - name: Check out profile repository
         uses: actions/checkout@v4
+      - name: Install GIF optimization tool
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends ffmpeg
+          ffmpeg -version | head -n 1
       - name: Download and optimize requested GIF
         shell: bash
         run: |
