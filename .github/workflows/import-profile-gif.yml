@@ -1,0 +1,60 @@
+name: Import profile GIF (one-time)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-profile-gif.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out profile repository
+        uses: actions/checkout@v4
+      - name: Download and validate the requested GIF
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p assets
+          URL1='https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMm5vc2Q0aXg0YmJ1cjRndjF3MnI3NGp0OTM4dThzeXdwZ205NnhqcSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3og0IyRiAsl1Pczi6Y/giphy.gif'
+          URL2='https://media.giphy.com/media/3og0IyRiAsl1Pczi6Y/giphy.gif'
+          URL3='https://i.giphy.com/media/3og0IyRiAsl1Pczi6Y/giphy.gif'
+          valid=0
+          for url in "$URL1" "$URL2" "$URL3"; do
+            if curl --fail --location --silent --show-error --retry 2 --connect-timeout 10 --max-time 80 --max-filesize 15000000 "$url" --output assets/profile-animation.gif; then
+              if file --mime-type assets/profile-animation.gif | grep -q 'image/gif'; then
+                valid=1
+                break
+              fi
+            fi
+          done
+          if [[ "$valid" != 1 ]]; then
+            echo 'FAILED: Requested GIF could not be downloaded as a valid GIF.' >&2
+            exit 1
+          fi
+          ls -lh assets/profile-animation.gif
+          python3 - <<'PY'
+          from pathlib import Path
+          path=Path('README.md')
+          old='<img align="right" width="260" alt="Animación GIF decorativa" src="https://media2.giphy.com/media/3og0IyRiAsl1Pczi6Y/giphy.gif" />'
+          new='<img align="right" width="260" alt="Animación GIF decorativa" src="assets/profile-animation.gif" />'
+          txt=path.read_text(encoding='utf-8')
+          if txt.count(old)!=1:
+              raise SystemExit('README changed; refusing unexpected replacement')
+          path.write_text(txt.replace(old,new),encoding='utf-8')
+          PY
+      - name: Commit GIF as a repository asset
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/profile-animation.gif README.md
+          git commit -m 'fix(profile): host requested animated GIF locally'
+          git push origin HEAD:main
