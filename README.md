@@ -18,7 +18,7 @@
 
 <img align="right" width="260" alt="Animación GIF decorativa" src="assets/profile-animation.gif" />
 
-## 👨‍💻 Sobre mí
+### 👨‍💻 Sobre mí
 
 Soy **estudiante de Analista en Sistemas en Escuela Da Vinci (Argentina)** y desarrollador de software en formación. Disfruto convertir ideas en aplicaciones funcionales, desde la interfaz de usuario hasta la base de datos, el despliegue y el mantenimiento.
 
