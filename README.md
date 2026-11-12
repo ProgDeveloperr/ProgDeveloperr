@@ -16,7 +16,7 @@
   </a>
 </p>
 
-<img align="right" width="260" alt="GIF animado de Giphy" src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3J1cGZvcmd3Z3k5YmdydmVlMWx4OG93Zmt2bDRuZGJpZWZmY3BmYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3og0IV7MOCfnm85iRa/giphy.gif" />
+<img align="right" width="260" alt="Animación GIF decorativa" src="https://media2.giphy.com/media/3og0IyRiAsl1Pczi6Y/giphy.gif" />
 
 ## 👨‍💻 Sobre mí
 
